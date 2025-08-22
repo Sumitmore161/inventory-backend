@@ -1,0 +1,19 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    type VARCHAR(50),
+    sku VARCHAR(100) UNIQUE NOT NULL,
+    image_url TEXT,
+    description TEXT,
+    quantity INTEGER DEFAULT 0,
+    price NUMERIC(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+);
