@@ -27,7 +27,6 @@ app.use(cors())
 app.use("/api", productRoutes);
 app.use("/api",userRoutes);
 app.use("/api/auth",authRoutes);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //error handling middleware 
 app.use(errorHandler);
