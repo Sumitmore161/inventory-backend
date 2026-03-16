@@ -25,6 +25,7 @@ export const createProduct = async (req, res, next) => {
         const product = await createProductService(req.body);
         handleResponse(res, 201, "Product added successfully", product);
     } catch (error) {
+        console.log("this is error message : ",error.code)
         next(error);
     }
 };

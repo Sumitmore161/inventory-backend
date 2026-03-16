@@ -12,7 +12,7 @@ const productSchema = Joi.object({
 
 const validateProduct = (req, res, next) => {
     const { error } = productSchema.validate(req.body);
-    if (!error) {
+    if (error) {
         return res.status(400).json({
             status: 400,
             message: error.details[1].message

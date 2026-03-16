@@ -4,10 +4,10 @@ import { createProduct ,updateProductQuantity } from "../controllers/productCont
 import authenticate from "../middlewares/authMiddleware.js"; // your JWT middleware
 import { getAllProducts } from "../controllers/productController.js";
 const router = express.Router();
-router.get("/products", authenticate, getAllProducts);
-
-router.post("/products", authenticate, validateProduct, createProduct);
-router.put("/products/:id/quantity", authenticate, updateProductQuantity);
+router.use(authenticate)
+router.get("/products", getAllProducts);
+router.post("/products", validateProduct, createProduct);
+router.put("/products/:id/quantity", updateProductQuantity);
 
 
 export default router;

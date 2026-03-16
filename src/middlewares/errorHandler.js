@@ -6,14 +6,14 @@ const errorHandler =  (err, req, res, next) =>{
     {
         return res.status(409).json({
             status:409,
-            message:"Email already exists"
+            message:err.message
         })
     }
-    req.status(500).json({
-        status : 500,
+    req.status(err.statuscode).json({
+        status : err.statuscode,
         message: "Something gone wrong",
          error: err.message
-
+        
     })
 }   
 
